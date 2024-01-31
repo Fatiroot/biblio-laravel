@@ -107,14 +107,16 @@
                                                 </td>
                                                 <td>
                                 
-                                                    <form action="edit.php" method="post">
+                                                    <form action="{{route('books.edit', $book->id)}}" method="post">
                                                             <input type="hidden" name="id" value="">
                                                             <button type="submit" name="editId" style="background: none; border: none;">
                                                             <a href=""><i class="fa-solid fa-pen"></i></a>
                                                             </button>
                                                     </form>
 
-                                                    <form action="../../../App/Controllers/BookController.php" method="Post">
+                                                    <form action="{{route('books.destroy', $book->id)}}" method="Post">
+                                                    @csrf
+                                                    @method('delete')
                                                         <input type="hidden" name="id" value="">
                                                         <button type="submit" name="delete" style="background: none; border: none;">
                                                         <a href="" ><i class="fa-solid fa-trash"></i></a>

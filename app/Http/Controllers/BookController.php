@@ -21,4 +21,16 @@ public function store(Request $request){
     $book = Book::create($request->all());
     return redirect()->route('books.index');
 }
+public function edit(Book $book)
+{
+    //
+    return view('admin.book.edit',[ 'book'=>$book]);
+}
+public function destroy(Book $book)
+{
+    $book->delete();
+
+    return redirect()->route('books.index');
+}
+
 }
