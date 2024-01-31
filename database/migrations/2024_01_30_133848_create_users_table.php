@@ -23,6 +23,7 @@ return new class extends Migration
             $table->rememberToken();
             $table->foreignId('role_id')->default(2) ->constrained();
             $table->timestamps();
+            $table->softDeletes();
         });
     }
 

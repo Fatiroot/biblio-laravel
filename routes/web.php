@@ -1,6 +1,8 @@
 <?php
 
 use Illuminate\Support\Facades\Route;
+use App\Http\Controllers\BookController;
+use App\Models\Book;
 
 /*
 |--------------------------------------------------------------------------
@@ -16,3 +18,10 @@ use Illuminate\Support\Facades\Route;
 Route::get('/', function () {
     return view('welcome');
 });
+Route::get('/dashboard', function () {
+    return view('partials.dashboard');
+});
+// Route::get('books',[BookController::class, 'index']);
+// Route::get('books/create',[BookController::class, 'create']);
+
+ Route::resource('books', BookController::class);
