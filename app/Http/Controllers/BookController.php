@@ -24,8 +24,15 @@ public function store(Request $request){
 public function edit(Book $book)
 {
     //
-    return view('admin.book.edit',[ 'book'=>$book]);
+    return view('admin.book.edite',[ 'book'=>$book]);
 }
+public function update(Request $request, Book $book)
+{
+    //
+    $book->update($request->all());
+    return redirect()->route('books.index');
+}
+
 public function destroy(Book $book)
 {
     $book->delete();

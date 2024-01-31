@@ -107,7 +107,8 @@
                                                 </td>
                                                 <td>
                                 
-                                                    <form action="{{route('books.edit', $book->id)}}" method="post">
+                                                    <form action="{{route('books.edit', $book->id)}}" method="get">
+                                                    @csrf
                                                             <input type="hidden" name="id" value="">
                                                             <button type="submit" name="editId" style="background: none; border: none;">
                                                             <a href=""><i class="fa-solid fa-pen"></i></a>
