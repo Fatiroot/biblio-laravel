@@ -18,6 +18,17 @@ public function create(){
 }
 
 public function store(Request $request){ 
+    $validatedData = $request->validate([
+        'title' => ['required'],
+        'author' => ['required'],
+        'genre' => ['required'],
+        'description' => ['required'],
+        'publication_year' => ['required'],
+        'total_copies' => ['required', 'numeric'],
+        'available_copies' => ['required', 'numeric'],
+        
+    ]);
+
     $book = Book::create($request->all());
     return redirect()->route('books.index');
 }

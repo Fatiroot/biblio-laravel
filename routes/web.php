@@ -1,8 +1,11 @@
 <?php
 
+use App\Models\User;
+use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
-use App\Models\Book;
+use App\Http\Controllers\UserController;
+use App\Http\Controllers\ProfileController;
 
 /*
 |--------------------------------------------------------------------------
@@ -10,18 +13,32 @@ use App\Models\Book;
 |--------------------------------------------------------------------------
 |
 | Here is where you can register web routes for your application. These
-| routes are loaded by the RouteServiceProvider within a group which
-| contains the "web" middleware group. Now create something great!
+| routes are loaded by the RouteServiceProvider and all of them will
+| be assigned to the "web" middleware group. Make something great!
 |
 */
 
 Route::get('/', function () {
     return view('welcome');
 });
+//book route
+Route::resource('books', BookController::class);
+//user route 
+Route::resource('users', UserController::class);
+
+
+
+
 Route::get('/dashboard', function () {
     return view('partials.dashboard');
-});
-// Route::get('books',[BookController::class, 'index']);
-// Route::get('books/create',[BookController::class, 'create']);
+})->middleware(['auth', 'verified'])->name('dashboard');
 
- Route::resource('books', BookController::class);
+Route::middleware('auth')->group(function () {
+    Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');
+    Route::patch('/profile', [ProfileController::class, 'update'])->name('profile.update');
+    Route::delete('/profile', [ProfileController::class, 'destroy'])->name('profile.destroy');
+});
+
+require __DIR__.'/auth.php';
+
+
