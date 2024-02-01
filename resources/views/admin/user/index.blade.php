@@ -1,10 +1,5 @@
 
 @include('partials.dashboard')
-<div class="flex justify-center items-center">
-  <a href="{{ route('users.create')}}" class="btn btn-primary bg-green-500 text-white py-2 px-4 rounded-md hover:bg-green-600 focus:outline-none focus:shadow-outline-green active:bg-green-700">
-    Add New user
-  </a>
-</div>
     <div class="col-span-12 mt-5">
         <div class="grid gap-2 grid-cols-1 lg:grid-cols-1">
             <div class="bg-white p-4 shadow-lg rounded-lg">

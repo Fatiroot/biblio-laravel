@@ -168,7 +168,7 @@
                             </li> 
 							<li class="relative px-2 py-1 ">
                                 <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500"
-                                    href="../user/show.php">
+                                    href="/users">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
 											<circle cx="12" cy="7" r="4" />
 											<path d="M5 22v-2a7 7 0 0 1 14 0v2" />
@@ -179,7 +179,7 @@
                             </li>
                             <li class="relative px-2 py-1 ">
                                 <a class="inline-flex items-center w-full text-sm font-semibold text-white transition-colors duration-150 cursor-pointer hover:text-green-500"
-                                    href=" #">
+                                    href=" /books">
                                     <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" viewBox="0 0 24 24" fill="none" stroke="currentColor">
                                             <rect x="4" y="2" width="16" height="20" rx="2" ry="2" stroke-width="2" />
                                             <line x1="12" y1="18" x2="12" y2="22" />
