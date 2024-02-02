@@ -6,6 +6,7 @@ use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
+use App\Http\Controllers\ReservationController;
 
 /*
 |--------------------------------------------------------------------------
@@ -25,6 +26,10 @@ Route::get('/', function () {
 Route::resource('books', BookController::class);
 //user route 
 Route::resource('users', UserController::class);
+//reservation route
+Route::resource('reservations', ReservationController::class);
+
+
 
 
 
