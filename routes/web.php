@@ -31,6 +31,11 @@ Route::resource('reservations', ReservationController::class);
 
 
 
+Route::get('/home', [BookController::class, 'all']) ->name('books.all');
+
+
+
+
 
 
 

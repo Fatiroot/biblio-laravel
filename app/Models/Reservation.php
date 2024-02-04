@@ -11,9 +11,10 @@ class Reservation extends Model
 {
     use HasFactory, SoftDeletes;
     protected $fillable = [
+        'description',
         'reservation_date',
         'return_date',
-        'is_returnd',
+        'is_returned',
         'user_id',
         'book_id',
     ];

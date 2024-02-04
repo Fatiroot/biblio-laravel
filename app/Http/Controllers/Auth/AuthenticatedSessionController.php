@@ -34,7 +34,7 @@ class AuthenticatedSessionController extends Controller
         if ($user && $user->role->name === 'admin') {
             return redirect()->route('users.index');
         } elseif ($user && $user->role->name === 'client') {
-            return redirect('/');
+            return redirect('/home');
         }
 
         // Default redirect for unknown roles

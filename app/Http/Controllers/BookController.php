@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use App\Models\Book;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Auth;
 
 class BookController extends Controller
 {
@@ -12,6 +13,7 @@ public function index(){
     return view('admin.book.index',compact('books'));
 
 }
+
 public function create(){
     return view('admin.book.create');
 
@@ -49,6 +51,13 @@ public function destroy(Book $book)
     $book->delete();
 
     return redirect()->route('books.index');
+}
+
+public function all()
+{
+    $books=Book::all();
+    $userAuth = Auth::user();
+    return view('home',compact('books','userAuth'));
 }
 
 }
