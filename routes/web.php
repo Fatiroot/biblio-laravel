@@ -4,9 +4,11 @@ use App\Models\User;
 use Illuminate\Support\Facades\Auth;
 use Illuminate\Support\Facades\Route;
 use App\Http\Controllers\BookController;
+use App\Http\Controllers\DashAdmin;
 use App\Http\Controllers\UserController;
 use App\Http\Controllers\ProfileController;
 use App\Http\Controllers\ReservationController;
+use App\Http\Controllers\DashAdminController;
 
 /*
 |--------------------------------------------------------------------------
@@ -19,16 +21,23 @@ use App\Http\Controllers\ReservationController;
 |
 */
 
-Route::get('/', function () {
-    return view('welcome');
-});
+// Route::get('/', function () {
+//     return view('welcome');
+// });
+
+Route::get('/', [BookController::class, 'allhome']) ->name('books.allhome');
+Route::get('/dashboard', [DashAdminController::class, 'index']);
+
+Route::middleware(['auth', 'role:admin'])->group(function () {
 //book route
 Route::resource('books', BookController::class);
 //user route 
 Route::resource('users', UserController::class);
 //reservation route
-Route::resource('reservations', ReservationController::class);
 
+});
+
+Route::resource('reservations', ReservationController::class);
 
 
 Route::get('/home', [BookController::class, 'all']) ->name('books.all');
@@ -41,7 +50,7 @@ Route::get('/home', [BookController::class, 'all']) ->name('books.all');
 
 Route::get('/dashboard', function () {
     return view('partials.dashboard');
-})->middleware(['auth', 'verified'])->name('dashboard');
+})->middleware(['auth', 'role:admin'])->name('dashboard');
 
 Route::middleware('auth')->group(function () {
     Route::get('/profile', [ProfileController::class, 'edit'])->name('profile.edit');

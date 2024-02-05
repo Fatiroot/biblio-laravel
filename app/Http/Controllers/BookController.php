@@ -59,5 +59,11 @@ public function all()
     $userAuth = Auth::user();
     return view('home',compact('books','userAuth'));
 }
+public function allhome()
+{
+    $books=Book::all();
+    return view('welcome',compact('books'));
+}
+
 
 }

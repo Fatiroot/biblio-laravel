@@ -39,10 +39,9 @@ class ReservationController extends Controller
             try{
             $reservation = Reservation::create($request->all());
             $book = $reservation->book;
-            $book->decrement('available_copies');
-            $userAuth = Auth::user();
+            $book->decrement('available_copies'); 
             DB::commit();
-            return view('/home', compact('book','userAuth'));
+            return redirect()->route('books.all');
 
         }
         catch(Exception $e){

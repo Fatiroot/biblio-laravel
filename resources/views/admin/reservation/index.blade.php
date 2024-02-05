@@ -2,11 +2,7 @@
 @include('partials.dashboard')
 <main class="">
     <div class="grid mb-4 pb-10 px-8 mx-4 rounded-3xl bg-gray-100 border-4 border-green-400">     
-        <div class="flex justify-center items-center">
-            <a href="{{ route('reservations.create')}}" class="btn btn-primary bg-green-500 text-white py-2 px-4 rounded-md hover:bg-g   reen-600 focus:outline-none focus:shadow-outline-green active:bg-green-700">
-                Add New reservation
-            </a>
-            </div>
+        
                 <div class="col-span-12 mt-5">
                     <div class="grid gap-2 grid-cols-1 lg:grid-cols-1">
                         <div class="bg-white p-4 shadow-lg rounded-lg">

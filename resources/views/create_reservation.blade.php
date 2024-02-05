@@ -1,4 +1,4 @@
-fdghjk
+
 {{ $book->id }}
 <x-app-layout>
     <x-slot name="header">
